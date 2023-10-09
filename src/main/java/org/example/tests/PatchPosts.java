@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.Description;
 import org.example.pojo.Post;
 import org.example.utilities.GetDetails;
 import org.example.utilities.ReqSpecBuilders;
@@ -9,6 +10,7 @@ import org.testng.annotations.Test;
 
 public class PatchPosts {
   @Test
+  @Description("Update only a Post's title")
   public void updatePostTitle() {
 //    Change only title
     Post patchPostTitle = ReqSpecBuilders.patchPostReq("{\n"
@@ -24,6 +26,7 @@ public class PatchPosts {
     Assert.assertEquals(patchPostTitle.getId(), 1);
   }
   @Test
+  @Description("Update only a Post's body")
   public void updatePostBody() {
 //    Change only title
     Post patchPostBody = ReqSpecBuilders.patchPostReq("{\n"
@@ -39,6 +42,7 @@ public class PatchPosts {
     Assert.assertEquals(patchPostBody.getId(), 2);
   }
   @Test
+  @Description("Update only a Post's UserId")
   public void updatePostUserId() {
 //    Change only title
     Post patchPostBody = ReqSpecBuilders.patchPostReq("{\n"
@@ -54,6 +58,7 @@ public class PatchPosts {
     Assert.assertEquals(patchPostBody.getId(), 3);
   }
   @Test
+  @Description("Update only a Post's Id")
   public void updatePostId() {
 //    Change only title
     Post patchPostBody = ReqSpecBuilders.patchPostReq("{\n"

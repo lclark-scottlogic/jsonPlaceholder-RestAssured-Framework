@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.Description;
 import org.example.pojo.Post;
 import org.example.utilities.ReqSpecBuilders;
 import org.example.utilities.ResSpecBuilders;
@@ -8,6 +9,7 @@ import org.testng.annotations.Test;
 
 public class CreatePosts {
 @Test
+@Description("Create a Post")
     public void createPost() {
 //  Instantiate a Post to send to server
   Post myPost = new Post();
@@ -25,6 +27,7 @@ public class CreatePosts {
   Assert.assertEquals(createPostAllFieldsFilled.getBody(), "Here is my first post");
 }
 @Test
+@Description("Create a Post with No Title")
     public void createPostNoTitle() {
   Post noTitlePost = new Post();
   noTitlePost.setBody("Here is my first post");
@@ -40,6 +43,7 @@ public class CreatePosts {
   Assert.assertEquals(createPostNoTitle.getBody(), "Here is my first post");
 }
   @Test
+  @Description("Create a Post with No Body")
   public void createPostNoBody() {
     Post noBodyPost = new Post();
     noBodyPost.setTitle("My First Post");
@@ -55,6 +59,7 @@ public class CreatePosts {
     Assert.assertNull(createPostNoBody.getBody());
   }
   @Test
+  @Description("Create a Post with No User")
   public void createPostNoUser() {
     Post noUserPost = new Post();
     noUserPost.setTitle("My First Post");

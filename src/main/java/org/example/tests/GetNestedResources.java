@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.Description;
 import org.example.pojo.Album;
 import org.example.pojo.Comment;
 import org.example.pojo.CommentList;
@@ -12,6 +13,7 @@ import org.testng.annotations.Test;
 
 public class GetNestedResources {
   @Test
+  @Description("Get a Post's comments")
   public void getPostComments(){
     Comment[] getPostComments= ReqSpecBuilders.getPostReq(1)
         .when().get("/posts/{id}/comments")
@@ -26,6 +28,7 @@ public class GetNestedResources {
     Assert.assertEquals(getPostComments[4].getBody(),"harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et");
   }
   @Test
+  @Description("Get an invalid Post's comments")
   public void getInvalidPostComments() {
     Comment[] getPostComments = ReqSpecBuilders.getPostReq(101)
         .when().get("/posts/{id}/comments")
@@ -34,6 +37,7 @@ public class GetNestedResources {
     Assert.assertEquals(getPostComments.length,0);
   }
   @Test
+  @Description("Get a Post's photos")
   public void getPostPhotos(){
     Photo[] getPhotos=ReqSpecBuilders.getPostReq(2)
         .when().get("/albums/{id}/photos")
@@ -48,6 +52,7 @@ public class GetNestedResources {
     Assert.assertEquals(getPhotos[36].getThumbnailUrl(),"https://via.placeholder.com/150/224566");
   }
   @Test
+  @Description("Get a User's albums")
   public void getUserAlbums(){
     Album[] getUserAlbums=ReqSpecBuilders.getPostReq(5)
         .when().get("/users/{id}/albums")
@@ -60,6 +65,7 @@ public class GetNestedResources {
     Assert.assertEquals(getUserAlbums[4].getTitle(),"tenetur quos ea unde est enim corrupti qui");
   }
   @Test
+  @Description("Get an invalid User's albums")
   public void getInvalidUserAlbums() {
     Album[] getInvalidUserAlbums = ReqSpecBuilders.getPostReq(11)
         .when().get("/users/{id}/albums")
@@ -68,6 +74,7 @@ public class GetNestedResources {
     Assert.assertEquals(getInvalidUserAlbums.length,0);
   }
   @Test
+  @Description("Get a User's todos")
   public void getUserToDos() {
     ToDo[] getUserToDos = ReqSpecBuilders.getPostReq(3)
         .when().get("/users/{id}/todos")
@@ -81,6 +88,7 @@ public class GetNestedResources {
     Assert.assertEquals(getUserToDos[7].getCompleted(), "false");
   }
     @Test
+    @Description("Get an invalid User's todos")
     public void getInvalidUserToDos() {
       Album[] getInvalidUserToDos = ReqSpecBuilders.getPostReq(11)
           .when().get("/users/{id}/todos")

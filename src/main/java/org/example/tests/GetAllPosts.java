@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.Description;
 import io.restassured.path.json.JsonPath;
 import org.example.pojo.Post;
 import org.example.pojo.PostList;
@@ -12,6 +13,7 @@ import org.testng.annotations.Test;
 public class GetAllPosts {
 
   @Test
+  @Description("Get All Posts")
   public void getAllPosts() {
 //    Get all Posts
     String getAllPosts = ReqSpecBuilders.getAllPostReq()

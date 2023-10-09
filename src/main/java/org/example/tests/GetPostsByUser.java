@@ -1,5 +1,6 @@
 package org.example.tests;
 
+import io.qameta.allure.Description;
 import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.Arrays;
@@ -12,6 +13,8 @@ import org.testng.annotations.Test;
 
 public class GetPostsByUser {
   @Test
+  @Description("Getting a User's Posts")
+
   public void getUserOnePosts(){
     Post[] userOnePosts= ReqSpecBuilders.getPostByUserReq(1)
         .when().get("/posts")
@@ -28,6 +31,7 @@ public class GetPostsByUser {
     Assert.assertEquals(userOnePosts[4].getTitle(),"nesciunt quas odio");
   }
   @Test
+  @Description("Getting an invalid User's Posts gives an empty array when id is 0")
   public void getZeroUserPosts(){
     Post[] userOnePosts= ReqSpecBuilders.getPostByUserReq(0)
         .when().get("/posts")
@@ -36,6 +40,7 @@ public class GetPostsByUser {
     Assert.assertEquals(userOnePosts.length,0);
   }
   @Test
+  @Description("Getting an invalid User's Posts gives an empty array when id is 101")
   public void getInvalidUserPosts(){
     Post[] userOnePosts= ReqSpecBuilders.getPostByUserReq(101)
         .when().get("/posts")

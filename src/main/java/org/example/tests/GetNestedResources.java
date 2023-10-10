@@ -1,6 +1,7 @@
 package org.example.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
 import org.example.pojo.Album;
 import org.example.pojo.Comment;
 import org.example.pojo.CommentList;
@@ -14,6 +15,7 @@ import org.testng.annotations.Test;
 public class GetNestedResources {
   @Test
   @Description("Get a Post's comments")
+  @Feature("Get Nested Resources: Post")
   public void getPostComments(){
     Comment[] getPostComments= ReqSpecBuilders.getPostReq(1)
         .when().get("/posts/{id}/comments")
@@ -29,6 +31,7 @@ public class GetNestedResources {
   }
   @Test
   @Description("Get an invalid Post's comments")
+  @Feature("Get Nested Resources: Post")
   public void getInvalidPostComments() {
     Comment[] getPostComments = ReqSpecBuilders.getPostReq(101)
         .when().get("/posts/{id}/comments")
@@ -38,6 +41,7 @@ public class GetNestedResources {
   }
   @Test
   @Description("Get a Post's photos")
+  @Feature("Get Nested Resources: Post")
   public void getPostPhotos(){
     Photo[] getPhotos=ReqSpecBuilders.getPostReq(2)
         .when().get("/albums/{id}/photos")
@@ -53,6 +57,7 @@ public class GetNestedResources {
   }
   @Test
   @Description("Get a User's albums")
+  @Feature("Get Nested Resources: User")
   public void getUserAlbums(){
     Album[] getUserAlbums=ReqSpecBuilders.getPostReq(5)
         .when().get("/users/{id}/albums")
@@ -66,6 +71,7 @@ public class GetNestedResources {
   }
   @Test
   @Description("Get an invalid User's albums")
+  @Feature("Get Nested Resources: User")
   public void getInvalidUserAlbums() {
     Album[] getInvalidUserAlbums = ReqSpecBuilders.getPostReq(11)
         .when().get("/users/{id}/albums")
@@ -75,6 +81,7 @@ public class GetNestedResources {
   }
   @Test
   @Description("Get a User's todos")
+  @Feature("Get Nested Resources: User")
   public void getUserToDos() {
     ToDo[] getUserToDos = ReqSpecBuilders.getPostReq(3)
         .when().get("/users/{id}/todos")
@@ -89,6 +96,7 @@ public class GetNestedResources {
   }
     @Test
     @Description("Get an invalid User's todos")
+    @Feature("Get Nested Resources: User")
     public void getInvalidUserToDos() {
       Album[] getInvalidUserToDos = ReqSpecBuilders.getPostReq(11)
           .when().get("/users/{id}/todos")

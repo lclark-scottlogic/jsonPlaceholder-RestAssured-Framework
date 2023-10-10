@@ -1,6 +1,7 @@
 package org.example.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
 import org.example.pojo.Post;
 import org.example.utilities.GetDetails;
 import org.example.utilities.ReqSpecBuilders;
@@ -11,6 +12,7 @@ import org.testng.annotations.Test;
 public class GetPostsById {
     @Test
     @Description("Get first Post in the list")
+    @Feature("Get Posts")
         public void getPost1() {
       //Get Talk with Id=1
       Post getFirstPost = ReqSpecBuilders.getPostReq(1)
@@ -26,6 +28,7 @@ public class GetPostsById {
     }
   @Test
   @Description("Get last Post in the list")
+  @Feature("Get Posts")
   public void getPost100() {
     //Get Talk with Id=100
     Post getLastPost = ReqSpecBuilders.getPostReq(100)
@@ -40,6 +43,7 @@ public class GetPostsById {
   }
     @Test
     @Description("Get Post with Id that is larger than the last in the list")
+    @Feature("Get Posts")
     public void getPost101 () {
       String getInvalidPost = ReqSpecBuilders.getPostReq(101)
           .when().get("/posts/{id}")
@@ -47,6 +51,7 @@ public class GetPostsById {
     }
   @Test
   @Description("Get Post with Id that is less than the first in the list")
+  @Feature("Get Posts")
   public void getPost0() {
     //Get Talk with Id=0
     String getZeroPost = ReqSpecBuilders.getPostReq(0)

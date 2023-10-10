@@ -1,6 +1,7 @@
 package org.example.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
 import org.example.pojo.Post;
 import org.example.utilities.ReqSpecBuilders;
 import org.example.utilities.ResSpecBuilders;
@@ -10,6 +11,7 @@ import org.testng.annotations.Test;
 public class UpdatePosts {
   @Test
   @Description("Update a Post's Id")
+  @Feature("Update Post")
 public void updatePostTitle() {
 //    Update Post Title
   Post titlePost = new Post();
@@ -23,6 +25,7 @@ public void updatePostTitle() {
 }
 @Test
 @Description("Update a Post's Body")
+@Feature("Update Post")
 public void updatePostBody() {
   Post bodyPost = new Post();
   bodyPost.setBody("This is my newest post");
